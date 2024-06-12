@@ -62,6 +62,49 @@ Using npm:
 npm run dev
 ```
 
+Follow the docs presented here...
+
+https://shopify.dev/docs/apps/build/discounts/experience/build-discounts-function
+
+query {
+  shopifyFunctions(first: 25) {
+    nodes {
+      app {
+        title
+      }
+      apiType
+      title
+      id
+    }
+  }
+}
+
+
+
+
+and the next part mutation
+
+mutation {
+  discountAutomaticAppCreate(automaticAppDiscount: {
+    title: "Volume discount",
+    functionId: "YOUR_FUNCTION_ID_HERE",
+    startsAt: "2022-06-22T00:00:00"
+  }) {
+     automaticAppDiscount {
+      discountId
+     }
+     userErrors {
+      field
+      message
+     }
+  }
+}
+
+
+
+
+
+
 Using pnpm:
 
 ```shell
